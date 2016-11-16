@@ -1,5 +1,6 @@
 package com.example.administrator.chotot.activity;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -127,10 +128,10 @@ public class InputPhoneActivity extends AppCompatActivity implements OnClickList
 
                     userRef.child(phone).setValue(map);
 
-                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                    startActivity(intent);
+                    Intent intent = new Intent();
+                    setResult(Activity.RESULT_OK, intent);
                     savingPreferences(phone);
-                    sendTokenToServer(phone);
+                    /*sendTokenToServer(phone);*/
                     finish();
                 }else {
                     Toast.makeText(getApplicationContext(), "Số điện thoại này đã được đăng ký", Toast.LENGTH_SHORT).show();

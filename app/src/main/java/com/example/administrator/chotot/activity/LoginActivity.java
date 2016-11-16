@@ -251,14 +251,13 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
 
                         Intent intent = new Intent();
                         setResult(Activity.RESULT_OK, intent);
-                        finish();
 
                         PackageManager pm = getPackageManager();
                         pm.setComponentEnabledSetting(new ComponentName(getApplicationContext(), MyFirebaseMessagingService.class),
                                 PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
 
                         savingPreferences(phone);
-						sendTokenToServer(phone);
+						/*sendTokenToServer(phone);*/
 
                         finish();
 
@@ -311,20 +310,19 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
 
                             Intent intent = new Intent(getApplicationContext(), InputPhoneActivity.class);
                             intent.putExtra("bundle", bundle);
-                            startActivity(intent);
+                            startActivityForResult(intent, 1);
                         }else{
 
-                            sendTokenToServer(phone);
-                            Bundle bundle = new Bundle();
+                            /*sendTokenToServer(phone);*/
+                            /*Bundle bundle = new Bundle();
                             bundle.putString("fullname", fullname);
                             bundle.putString("idFb", idFb);
-                            bundle.putString("avatar", avatar);
+                            bundle.putString("avatar", avatar);*/
 
-                            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                            intent.putExtra("bundle", bundle);
-                            startActivity(intent);
+                            Intent intent = new Intent();
+                            setResult(Activity.RESULT_OK, intent);
 
-                            sendTokenToServer(phone);
+                            /*sendTokenToServer(phone);*/
                             savingPreferences(phone);
                             finish();
                         }
@@ -343,6 +341,14 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         callbackManager.onActivityResult(requestCode, resultCode, data);
+
+        if(resultCode == RESULT_OK){
+            if(requestCode == 1){
+                Intent intent = new Intent();
+                setResult(Activity.RESULT_OK, intent);
+                finish();
+            }
+        }
     }
 
     private void sendTokenToServer(final String phone) {

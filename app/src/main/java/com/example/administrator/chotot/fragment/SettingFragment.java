@@ -88,7 +88,7 @@ public class SettingFragment extends Fragment implements OnClickListener {
     }
 
     private void init(View view) {
-
+        pre = this.getActivity().getSharedPreferences(LoginActivity.prefname, Context.MODE_PRIVATE);
 
         mImgAvatar = (ImageView) view.findViewById(R.id.img_avatar);
         mImgInvite = (ImageView) view.findViewById(R.id.img_invite);
@@ -120,6 +120,18 @@ public class SettingFragment extends Fragment implements OnClickListener {
         mLnSaveSearch.setOnClickListener(this);
         mImgInvite.setOnClickListener(this);
         mLnLogin.setOnClickListener(this);
+    }
+
+    private void checkLogin(){
+        if(phone.equals("")){
+            mLnLogin.setVisibility(View.VISIBLE);
+            mLnInfo.setVisibility(View.GONE);
+            mLnLogout.setVisibility(View.GONE);
+        }else{
+            mLnLogin.setVisibility(View.GONE);
+            mLnInfo.setVisibility(View.VISIBLE);
+            mLnLogout.setVisibility(View.VISIBLE);
+        }
     }
 
     @Override
@@ -158,15 +170,18 @@ public class SettingFragment extends Fragment implements OnClickListener {
 
             case R.id.ln_log_out:
                 SharedPreferences.Editor editor = pre.edit();
-                editor.clear();
+                /*editor.clear();*/
+                editor.remove("username");
                 editor.commit();
 
                 PackageManager pm = getContext().getPackageManager();
                 pm.setComponentEnabledSetting(new ComponentName(getContext(), MyFirebaseMessagingService.class),
                         PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
 
-                Intent intentLogout = new Intent(getContext(), LoginActivity.class);
+                Intent intentLogout = new Intent(getContext(), MainActivity.class);
                 startActivity(intentLogout);
+                getActivity().finish();
+                Toast.makeText(getContext(), "Đăng xuất thành công!", Toast.LENGTH_SHORT).show();
                 break;
 
             case R.id.img_invite:
@@ -329,16 +344,7 @@ public class SettingFragment extends Fragment implements OnClickListener {
     @Override
     public void onResume() {
         super.onResume();
-        pre = this.getActivity().getSharedPreferences(LoginActivity.prefname, Context.MODE_PRIVATE);
 
-        if(phone.equals("")){
-            mLnLogin.setVisibility(View.VISIBLE);
-            mLnInfo.setVisibility(View.GONE);
-            mLnLogout.setVisibility(View.GONE);
-        }else{
-            mLnLogin.setVisibility(View.GONE);
-            mLnInfo.setVisibility(View.VISIBLE);
-            mLnLogout.setVisibility(View.VISIBLE);
-        }
+        checkLogin();
     }
 }
