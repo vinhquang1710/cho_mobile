@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "850800276741",
+    "firebase_url": "https://chotot-d0d2e.firebaseio.com",
+    "project_id": "chotot-d0d2e",
+    "storage_bucket": "chotot-d0d2e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:850800276741:android:7770d0c2dcc721ca",
+        "android_client_info": {
+          "package_name": "com.example.administrator.chotot"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "850800276741-bvid3sndv6sp3qles2o41103trpnbqg9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.administrator.chotot",
+            "certificate_hash": "FF634C5A35F01C2DA0F8EF1813237EC31B346646"
+          }
+        },
+        {
+          "client_id": "850800276741-4m294m3mvebfctrauij4r6up79r3kkh1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCxyim263okQNUJB9iHheu-oWVwpTO2mRg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "850800276741-4m294m3mvebfctrauij4r6up79r3kkh1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

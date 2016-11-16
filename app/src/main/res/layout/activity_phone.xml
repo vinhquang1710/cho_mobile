@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_size_48"
+        android:background="@color/colorToolbar">
+
+        <ImageView
+            android:id="@+id/img_back"
+            android:layout_width="@dimen/dimen_size_48"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/dimen_size_5"
+            android:background="@drawable/xml_button_toolbar_pressed"
+            android:padding="@dimen/dimen_size_10"
+            android:src="@drawable/ic_arrow_back_black"/>
+
+        <com.example.administrator.chotot.view.CustomFontTextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Nhập số diện thoại"
+            android:textColor="@color/colorTextBlack"
+            android:textSize="@dimen/dimen_text_20sp"
+            app:typeface="roboto_medium"/>
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorBgFragment"
+        android:orientation="vertical"
+        android:padding="@dimen/dimen_size_15">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:layout_marginBottom="@dimen/dimen_size_15">
+
+            <com.example.administrator.chotot.view.CustomFontTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tài khoản của bạn chưa có số điện thoại."
+                android:textColor="@android:color/black"
+                app:typeface="roboto_light"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_horizontal">
+
+                <com.example.administrator.chotot.view.CustomFontTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Xin vui lòng "
+                    android:textColor="@android:color/black"
+                    app:typeface="roboto_light"/>
+
+                <com.example.administrator.chotot.view.CustomFontTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="nhập số điện thoại"
+                    android:textColor="@android:color/black"
+                    app:typeface="roboto_medium"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:orientation="vertical"
+            android:padding="@dimen/dimen_size_5">
+
+            <com.example.administrator.chotot.view.CustomFontEditText
+                android:id="@+id/et_phone_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:hint="Số điện thoại"
+                android:padding="@dimen/dimen_size_5"
+                android:textColor="@android:color/black"
+                app:typeface="roboto_light"
+                android:inputType="phone"/>
+        </LinearLayout>
+
+        <com.example.administrator.chotot.view.CustomFontTextView
+            android:id="@+id/tv_next"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_size_15"
+            android:background="@drawable/xml_background_button_login"
+            android:gravity="center"
+            android:padding="@dimen/dimen_size_15"
+            android:text="Tiếp tục"
+            android:textAllCaps="true"
+            android:textColor="@color/colorTextWhite"
+            android:textSize="@dimen/dimen_text_16sp"
+            app:typeface="roboto_bold"/>
+    </LinearLayout>
+</LinearLayout>

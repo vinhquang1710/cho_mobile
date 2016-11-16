@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/colorBgFragment">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.example.administrator.chotot.view.CustomFontTextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Bạn chưa có tin nào trong mục này"
+            app:typeface="roboto_light"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_marginBottom="@dimen/dimen_size_10"
+            android:background="@drawable/xml_bg_button_sale"
+            android:paddingLeft="@dimen/dimen_size_20"
+            android:paddingBottom="@dimen/dimen_size_10"
+            android:paddingRight="@dimen/dimen_size_20"
+            android:paddingTop="@dimen/dimen_size_10"
+            android:gravity="center_vertical"
+            android:id="@+id/ln_sale">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_black_camera"/>
+
+            <com.example.administrator.chotot.view.CustomFontTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bán đồ của bạn"
+                app:typeface="roboto_bold"
+                android:textColor="@color/colorTextBlack"
+                android:layout_marginLeft="@dimen/dimen_size_10"/>
+        </LinearLayout>
+    </FrameLayout>
+</LinearLayout>

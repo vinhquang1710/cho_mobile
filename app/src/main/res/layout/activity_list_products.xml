@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:layout_scrollFlags="scroll|enterAlways"
+        app:theme="@style/AppTheme" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="horizontal"
+        android:background="@android:color/white"
+        android:padding="@dimen/dimen_size_10">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="@dimen/dimen_size_5"
+            android:id="@+id/ln_address">
+
+            <com.example.administrator.chotot.view.CustomFontTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Toàn quốc"
+                app:typeface="roboto_light"
+                android:textColor="@color/colorTextBlack"
+                android:id="@+id/tv_address"
+                android:singleLine="true"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_spinner_onboarding_choose_region"
+                android:layout_marginLeft="@dimen/dimen_size_5"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/colorLine" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="@dimen/dimen_size_5"
+            android:id="@+id/ln_category">
+
+            <com.example.administrator.chotot.view.CustomFontTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Tất cả danh mục"
+                app:typeface="roboto_light"
+                android:textColor="@color/colorTextBlack"
+                android:id="@+id/tv_category"
+                android:singleLine="true"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_spinner_onboarding_choose_region"
+                android:layout_marginLeft="@dimen/dimen_size_5"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/colorLine" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="@dimen/dimen_size_5"
+            android:id="@+id/ln_refine">
+
+            <com.example.administrator.chotot.view.CustomFontTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Mới nhất"
+                app:typeface="roboto_light"
+                android:textColor="@color/colorTextBlack"
+                android:id="@+id/tv_refine"
+                android:singleLine="true"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_spinner_onboarding_choose_region"
+                android:layout_marginLeft="@dimen/dimen_size_5"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/recy_products"
+        android:visibility="visible"/>
+
+    <com.example.administrator.chotot.view.CustomFontTextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorBgFragment"
+        android:text="Không có sản phẩm ở danh mục này"
+        android:gravity="center"
+        app:typeface="roboto_light"
+        android:id="@+id/tv_alert"
+        android:visibility="gone"/>
+</LinearLayout>

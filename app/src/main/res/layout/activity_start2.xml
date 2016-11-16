@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/colorOnboarding"
+              android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_size_180"
+        android:orientation="vertical"
+        android:background="@drawable/onboarding_buy_and_sell_top"
+        android:gravity="center_horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dimen_size_60"
+            android:src="@drawable/img_slogan"
+            android:layout_marginTop="@dimen/dimen_size_10"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="bottom|center_horizontal"
+        android:paddingBottom="@dimen/dimen_size_20">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dimen_size_120"
+            android:src="@drawable/onboarding_buy_and_sell_middle"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dimen_size_50"
+            android:src="@drawable/onboarding_buy_and_sell_bottom"
+            android:layout_marginTop="@dimen/dimen_size_10"/>
+    </LinearLayout>
+</LinearLayout>

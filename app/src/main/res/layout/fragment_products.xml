@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                 xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                 android:layout_width="match_parent"
+                                                 android:layout_height="match_parent"
+                                                 android:orientation="vertical">
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recy_category"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/bg_non_logged_in_left_drawer"/>
+
+                <ImageView
+                    android:layout_width="@dimen/dimen_size_140"
+                    android:layout_height="@dimen/dimen_size_80"
+                    android:layout_gravity="bottom|right"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_invite_friend_motion"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/dimen_size_15">
+
+                    <com.example.administrator.chotot.view.CustomFontTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Bạn càng đông, chợ càng vui"
+                        android:textAllCaps="true"
+                        android:textColor="@color/colorTextBlack"
+                        android:textSize="12sp"
+                        app:typeface="roboto_light"/>
+
+                    <com.example.administrator.chotot.view.CustomFontTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_size_5"
+                        android:text="Rủ bạn đi chợ tốt ngay!"
+                        android:textAllCaps="true"
+                        android:textColor="@color/colorTextBlack"
+                        android:textSize="@dimen/dimen_text_16sp"
+                        app:typeface="roboto_medium"/>
+
+                    <ImageView
+                        android:id="@+id/img_invite"
+                        android:layout_width="@dimen/dimen_size_150"
+                        android:layout_height="@dimen/dimen_size_30"
+                        android:layout_marginTop="@dimen/dimen_size_10"
+                        android:src="@drawable/xml_button_invite_friend"/>
+                </LinearLayout>
+            </FrameLayout>
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_marginBottom="@dimen/dimen_size_10"
+        android:background="@drawable/xml_bg_button_sale"
+        android:id="@+id/fl_sale">
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/btn_sale"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/xml_bg_button_sale"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/dimen_size_10"
+            android:paddingLeft="@dimen/dimen_size_20"
+            android:paddingRight="@dimen/dimen_size_20"
+            android:paddingTop="@dimen/dimen_size_10"
+            app:fabSize="normal"
+            android:visibility="gone"
+            app:layout_behavior="com.example.administrator.chotot.view.ScrollAwareFABBehavior" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/dimen_size_20"
+            android:paddingBottom="@dimen/dimen_size_10"
+            android:paddingRight="@dimen/dimen_size_20"
+            android:paddingTop="@dimen/dimen_size_10"
+            android:gravity="center_vertical"
+            android:id="@+id/ln_sale">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_black_camera"/>
+
+            <com.example.administrator.chotot.view.CustomFontTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bán đồ của bạn"
+                app:typeface="roboto_bold"
+                android:textColor="@color/colorTextBlack"
+                android:layout_marginLeft="@dimen/dimen_size_10"/>
+        </LinearLayout>
+    </FrameLayout>
+</android.support.design.widget.CoordinatorLayout>

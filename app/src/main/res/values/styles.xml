@@ -1,0 +1,28 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorToolbar</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorToolbar</item>
+        <item name="colorControlNormal">@color/black</item>
+    </style>
+
+    <declare-styleable name="CirclePageIndicator">
+        <attr name="indicator_spacing" format="dimension" />
+    </declare-styleable>
+    <style name="ProgressBarStyle" parent="@android:style/Widget.ProgressBar.Inverse"/>
+
+    <style name="textInputLayout" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorAccent">@color/colorTextBlack</item>
+    </style>
+
+    <style name="FacebookLoginButton">
+        <item name="android:background">@drawable/xml_background_button_facebook</item>
+        <item name="android:paddingTop">15dp</item>
+        <item name="android:paddingBottom">15dp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+</resources>

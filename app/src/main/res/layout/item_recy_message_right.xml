@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:gravity="right"
+              android:orientation="vertical"
+              android:paddingBottom="5dp"
+              android:paddingRight="10dp"
+              android:paddingTop="5dp">
+
+    <com.example.administrator.chotot.view.CustomFontTextView
+        android:id="@+id/tv_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_msg_right"
+        android:paddingBottom="5dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="5dp"
+        android:text="ddfds sfsdf"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        app:typeface="roboto_light"/>
+
+    <com.example.administrator.chotot.view.CustomFontTextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="23/12/2016"
+        android:textSize="12sp"
+        app:typeface="roboto_light"/>
+</LinearLayout>

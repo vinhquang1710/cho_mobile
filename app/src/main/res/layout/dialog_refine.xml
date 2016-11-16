@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@android:color/white"
+              android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/ln_new_products"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/dimen_size_15">
+
+        <com.example.administrator.chotot.view.CustomFontTextView
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="Mới nhất"
+            android:textColor="@color/colorTextBlack"
+            android:textSize="@dimen/dimen_text_16sp"
+            app:typeface="roboto_light"/>
+
+        <ImageView
+            android:id="@+id/img_rbn_new_normal"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_survey_radio_normal"/>
+
+        <ImageView
+            android:id="@+id/img_rbn_new_checked"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_survey_radio"
+            android:visibility="gone"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ln_cheap_products"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/dimen_size_15">
+
+        <com.example.administrator.chotot.view.CustomFontTextView
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="Rẻ nhất"
+            android:textColor="@color/colorTextBlack"
+            android:textSize="@dimen/dimen_text_16sp"
+            app:typeface="roboto_light"/>
+
+        <ImageView
+            android:id="@+id/img_rbn_cheap_normal"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_survey_radio_normal"/>
+
+        <ImageView
+            android:id="@+id/img_rbn_cheap_checked"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_survey_radio"
+            android:visibility="gone"/>
+    </LinearLayout>
+</LinearLayout>

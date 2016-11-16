@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:descendantFocusability="beforeDescendants"
+              android:focusableInTouchMode="true">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_size_48"
+        android:background="@color/colorToolbar">
+
+        <ImageView
+            android:id="@+id/img_back"
+            android:layout_width="@dimen/dimen_size_48"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/dimen_size_5"
+            android:background="@drawable/xml_button_toolbar_pressed"
+            android:padding="@dimen/dimen_size_10"
+            android:src="@drawable/ic_arrow_back_black"/>
+
+        <com.example.administrator.chotot.view.CustomFontTextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Đăng bán"
+            android:textColor="@color/colorTextBlack"
+            android:textSize="@dimen/dimen_text_20sp"
+            app:typeface="roboto_medium"/>
+    </FrameLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorBgFragment">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorBgFragment"
+            android:orientation="vertical"
+            android:padding="@dimen/dimen_size_10">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dimen_size_10"
+                android:background="@android:color/white"
+                android:orientation="vertical">
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <HorizontalScrollView
+                            android:layout_width="match_parent"
+                            android:layout_height="100dp"
+                            android:scrollbars="none"
+                            android:layout_gravity="center">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:id="@+id/ln_image_product"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:orientation="horizontal"
+                                    android:layout_gravity="center_vertical"/>
+
+                            </LinearLayout>
+                        </HorizontalScrollView>
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_size_10"
+                    android:orientation="horizontal">
+
+                    <com.example.administrator.chotot.view.CustomFontTextView
+                        android:id="@+id/tv_del_image"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/xml_button_cancel"
+                        android:gravity="center"
+                        android:padding="@dimen/dimen_size_10"
+                        android:text="Xóa ảnh"
+                        android:textColor="@color/colorTextWhite"
+                        app:typeface="roboto_medium"/>
+
+                    <View
+                        android:layout_width="@dimen/dimen_size_5"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/white"/>
+
+                    <com.example.administrator.chotot.view.CustomFontTextView
+                        android:id="@+id/tv_add_image"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/xml_background_button_login"
+                        android:gravity="center"
+                        android:padding="@dimen/dimen_size_10"
+                        android:text="Thêm ảnh"
+                        android:textColor="@color/colorTextWhite"
+                        app:typeface="roboto_medium"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:orientation="vertical"
+                android:padding="@dimen/dimen_size_5">
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/input_layout_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/textInputLayout">
+
+                    <com.example.administrator.chotot.view.CustomFontEditText
+                        android:id="@+id/et_title_product"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:hint="Tiêu đề sản phẩm"
+                        android:maxLength="50"
+                        android:padding="@dimen/dimen_size_5"
+                        android:textColor="@color/colorTextBlack"
+                        app:typeface="roboto_light"/>
+                </android.support.design.widget.TextInputLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_size_0.5"
+                    android:background="@color/colorLine"/>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/input_layout_category"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_size_5"
+                    android:theme="@style/textInputLayout">
+
+                    <com.example.administrator.chotot.view.CustomFontEditText
+                        android:id="@+id/et_category"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:enabled="true"
+                        android:focusable="false"
+                        android:hint="Danh mục"
+                        android:padding="@dimen/dimen_size_5"
+                        android:textColor="@color/colorTextBlack"
+                        app:typeface="roboto_light"/>
+                </android.support.design.widget.TextInputLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_size_0.5"
+                    android:background="@color/colorLine"/>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/input_layout_city"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_size_5"
+                    android:theme="@style/textInputLayout">
+
+                    <com.example.administrator.chotot.view.CustomFontEditText
+                        android:id="@+id/et_city"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:enabled="true"
+                        android:focusable="false"
+                        android:hint="Nơi giao dịch"
+                        android:padding="@dimen/dimen_size_5"
+                        android:textColor="@color/colorTextBlack"
+                        app:typeface="roboto_light"/>
+                </android.support.design.widget.TextInputLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_size_0.5"
+                    android:background="@color/colorLine"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/input_layout_price"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_size_5"
+                        android:layout_weight="1"
+                        android:theme="@style/textInputLayout">
+
+                        <com.example.administrator.chotot.view.CustomFontEditText
+                            android:id="@+id/et_price"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@null"
+                            android:hint="Giá"
+                            android:inputType="number"
+                            android:padding="@dimen/dimen_size_5"
+                            android:textColor="@color/colorTextBlack"
+                            app:typeface="roboto_light"/>
+                    </android.support.design.widget.TextInputLayout>
+
+                    <com.example.administrator.chotot.view.CustomFontTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_marginBottom="@dimen/dimen_size_5"
+                        android:layout_marginRight="@dimen/dimen_size_10"
+                        android:text="đ"
+                        android:textColor="@color/colorTextBlack"
+                        app:typeface="roboto_light"/>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_size_0.5"
+                    android:background="@color/colorLine"/>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/input_layout_status"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_size_5"
+                    android:theme="@style/textInputLayout">
+
+                    <com.example.administrator.chotot.view.CustomFontEditText
+                        android:id="@+id/et_status"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:enabled="true"
+                        android:focusable="false"
+                        android:hint="Tình trạng"
+                        android:padding="@dimen/dimen_size_5"
+                        android:textColor="@color/colorTextBlack"
+                        app:typeface="roboto_light"/>
+                </android.support.design.widget.TextInputLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_size_0.5"
+                    android:background="@color/colorLine"/>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/input_layout_describe"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_size_5"
+                    android:theme="@style/textInputLayout">
+
+                    <com.example.administrator.chotot.view.CustomFontEditText
+                        android:id="@+id/et_describe"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:gravity="top"
+                        android:hint="Mô tả"
+                        android:inputType="textMultiLine"
+                        android:minLines="5"
+                        android:padding="@dimen/dimen_size_5"
+                        android:textColor="@color/colorTextBlack"
+                        app:typeface="roboto_light"/>
+                </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
+
+            <com.example.administrator.chotot.view.CustomFontTextView
+                android:id="@+id/tv_sale"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_size_10"
+                android:background="@drawable/xml_background_button_login"
+                android:gravity="center"
+                android:padding="@dimen/dimen_size_10"
+                android:text="Đăng bán"
+                android:textAllCaps="true"
+                android:textColor="@android:color/white"
+                app:typeface="roboto_regular"/>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

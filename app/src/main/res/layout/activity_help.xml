@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_size_48"
+        android:background="@color/colorToolbar">
+
+        <ImageView
+            android:id="@+id/img_back"
+            android:layout_width="@dimen/dimen_size_48"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/dimen_size_5"
+            android:background="@drawable/xml_button_toolbar_pressed"
+            android:padding="@dimen/dimen_size_10"
+            android:src="@drawable/ic_arrow_back_black"/>
+
+        <com.example.administrator.chotot.view.CustomFontTextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Trợ giúp"
+            android:textColor="@color/colorTextBlack"
+            android:textSize="@dimen/dimen_text_20sp"
+            app:typeface="roboto_medium"/>
+    </FrameLayout>
+
+    <WebView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/web_help"/>
+</LinearLayout>

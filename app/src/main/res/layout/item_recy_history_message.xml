@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:id="@+id/ln_item_history_message"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@drawable/xml_layout_pressed">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="@dimen/dimen_size_5">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/img_avatar"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/default_avatar"/>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dimen_size_10"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:paddingBottom="@dimen/dimen_size_5"
+                        android:paddingTop="@dimen/dimen_size_5">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <com.example.administrator.chotot.view.CustomFontTextView
+                                android:id="@+id/tv_fullname"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Nguyễn Văn A"
+                                android:textColor="@color/colorTextBlack"
+                                app:typeface="roboto_regular"/>
+
+                            <com.example.administrator.chotot.view.CustomFontTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text=" - "
+                                android:textColor="@color/colorTextBlack"
+                                app:typeface="roboto_regular"/>
+
+                            <com.example.administrator.chotot.view.CustomFontTextView
+                                android:id="@+id/tv_time"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="1 phút"
+                                app:typeface="roboto_light"/>
+                        </LinearLayout>
+
+                        <com.example.administrator.chotot.view.CustomFontTextView
+                            android:id="@+id/tv_title_product"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Product"
+                            android:textColor="#707070"
+                            app:typeface="roboto_medium"/>
+
+                        <com.example.administrator.chotot.view.CustomFontTextView
+                            android:id="@+id/tv_content"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dimen_size_5"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            android:text="Content Product"
+                            android:textColor="@color/colorTextBlack"
+                            app:typeface="roboto_light"/>
+                    </LinearLayout>
+
+                    <com.example.administrator.chotot.view.SquareImageView
+                        android:id="@+id/img_product"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/default_avatar"/>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_size_0.5"
+                    android:background="@color/colorLine"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/icon_unread"
+            android:layout_gravity="center"
+            android:background="#64fd9800"
+            android:id="@+id/img_unread"/>
+    </FrameLayout>
+</LinearLayout>

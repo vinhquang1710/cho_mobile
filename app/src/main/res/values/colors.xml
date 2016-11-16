@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="colorOnboarding">#5b5b5b</color>
+    <color name="colorBgInputLogin">#ffffff</color>
+    <color name="colorLine">#e4e4e4</color>
+    <color name="colorBgLogin">#fd9800</color>
+    <color name="colorBgLoginPressed">#388e81</color>
+    <color name="colorBgRegister">#31b737</color>
+    <color name="colorBgRegisterPressed">#388e3c</color>
+    <color name="colorTextWhite">#ffffff</color>
+    <color name="colorTextBlack">#000000</color>
+    <color name="colorBgButtonForgotPwd">#64ffffff</color>
+    <color name="colorToolbar">#fedc00</color>
+    <color name="colorToolbarPressed">#fefe00</color>
+    <color name="colorTextHint">#484848</color>
+    <color name="black">#000000</color>
+    <color name="colorTabLayout">#fafafa</color>
+    <color name="colorBgFragment">#ececec</color>
+    <color name="colorLayoutPressed">#ea00ddff</color>
+    <color name="colorBtnSaleNormal">#fffecc00</color>
+    <color name="colorBgActionBar">#e4e4e4</color>
+    <color name="colorPrice">#ff0000</color>
+</resources>

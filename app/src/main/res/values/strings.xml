@@ -1,0 +1,17 @@
+<resources>
+    <string name="facebook_app_id">368790750126422</string>
+    <string name="app_name">Chợ Mobile</string>
+    <string name="font_roboto">Roboto</string>
+    <string name="register">Đăng ký</string>
+    <string name="forgot">Quên mật khẩu</string>
+    <string name="login">Đăng nhập</string>
+    <string name="phone_number">Số điện thoại</string>
+    <string name="pwd">Mật khẩu</string>
+    <string name="next">Tiếp tục</string>
+    <string name="accept">Đồng ý</string>
+    <string name="ibuy">TÔI MUA</string>
+    <string name="isell">TÔI BÁN</string>
+    <string name="selling">ĐANG BÁN</string>
+    <string name="approval">ĐỢI DUYỆT</string>
+    <string name="denied">BỊ TỪ CHỐI</string>
+</resources>
