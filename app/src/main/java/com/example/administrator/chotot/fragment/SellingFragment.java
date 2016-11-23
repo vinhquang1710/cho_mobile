@@ -29,7 +29,6 @@ import java.util.Collections;
 
 import static com.example.administrator.chotot.activity.MainActivity.phone;
 import static com.example.administrator.chotot.utils.FirebaseConfig.productRef;
-import static com.facebook.FacebookSdk.getApplicationContext;
 
 /**
  * Created by Administrator on 17/10/2016.
@@ -139,7 +138,7 @@ public class SellingFragment extends Fragment implements OnClickListener {
                 bundle.putString("id", mArr.get(position).getId());
                 bundle.putString("phone", mArr.get(position).getIdUser());
 
-                Intent intent = new Intent(getApplicationContext(), DetailProductActivity.class);
+                Intent intent = new Intent(getContext(), DetailProductActivity.class);
                 intent.putExtra("bundle", bundle);
                 startActivity(intent);
             }
