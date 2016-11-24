@@ -54,7 +54,7 @@ public class DetailProductActivity extends AppCompatActivity implements OnClickL
     private ImageView mImgBack, mImgFav, mImgFavPressed, mImgShare, mImgMenu, mImgAvatar;
     private ViewPager mVpImage;
     private TextView mTvTitle, mTvPrice, mTvFullname, mTvTime, mTvDescription, mTvCategory, mTvStatus, mTvAddress, mTvCity;
-    private LinearLayout mLnCall, mLnChat, mLnSendSMS;
+    private LinearLayout mLnCall, mLnChat, mLnSendSMS, mLnProfile;
 
     private ProgressDialog mProgress;
 
@@ -106,6 +106,7 @@ public class DetailProductActivity extends AppCompatActivity implements OnClickL
         mLnCall = (LinearLayout) findViewById(R.id.ln_call);
         mLnChat = (LinearLayout) findViewById(R.id.ln_chat);
         mLnSendSMS = (LinearLayout) findViewById(R.id.ln_sms);
+        mLnProfile = (LinearLayout)findViewById(R.id.ln_profile);
 
         mProgress = new ProgressDialog(this);
     }
@@ -120,6 +121,7 @@ public class DetailProductActivity extends AppCompatActivity implements OnClickL
         mLnCall.setOnClickListener(this);
         mLnChat.setOnClickListener(this);
         mLnSendSMS.setOnClickListener(this);
+        mLnProfile.setOnClickListener(this);
 
         mVpImage.setOnClickListener(this);
     }
@@ -190,8 +192,13 @@ public class DetailProductActivity extends AppCompatActivity implements OnClickL
                 startActivity(smsIntent);
                 break;
 
-            case R.id.pager_image:
+            case R.id.ln_profile:
+                Bundle bundleProfile = new Bundle();
+                bundleProfile.putString("idUser", idUser);
 
+                Intent intentProfile = new Intent(getApplicationContext(), ProfileActivity.class);
+                intentProfile.putExtra("bundle", bundleProfile);
+                startActivity(intentProfile);
                 break;
         }
     }

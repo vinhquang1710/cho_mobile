@@ -132,7 +132,8 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:layout_marginTop="@dimen/dimen_size_10"
-                    android:gravity="center_vertical">
+                    android:gravity="center_vertical"
+                    android:id="@+id/ln_profile">
 
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:layout_width="@dimen/dimen_size_30"

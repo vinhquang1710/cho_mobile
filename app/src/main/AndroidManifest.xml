@@ -70,6 +70,7 @@
         <activity android:name=".activity.ChatActivity" />
         <activity android:name=".activity.ListFavoriteActivity" />
         <activity android:name=".activity.HelpActivity" />
+        <activity android:name=".activity.ProfileActivity" />
     </application>
 
 </manifest>
