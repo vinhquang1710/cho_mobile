@@ -4,4 +4,9 @@
         android:title="Báo cáo"
         android:icon="@drawable/ic_menu_abuse"
         android:showAsAction="always|withText"/>
+
+    <item android:id="@+id/menu_remove"
+          android:title="Xóa bài viết"
+          android:icon="@drawable/ic_remove"
+          android:showAsAction="always|withText"/>
 </menu>

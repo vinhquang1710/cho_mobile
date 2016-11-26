@@ -171,7 +171,7 @@ public class ProductsFragment extends Fragment implements OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.img_invite:
-
+                shareUrl();
                 break;
 
             case R.id.fl_sale:
@@ -183,5 +183,19 @@ public class ProductsFragment extends Fragment implements OnClickListener {
                 }
                 break;
         }
+    }
+
+    private void shareUrl() {
+        Intent share = new Intent(android.content.Intent.ACTION_SEND);
+        share.setType("text/plain");
+        share.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
+
+        // Add data to the intent, the receiving app will decide
+        // what to do with it.
+        share.putExtra(Intent.EXTRA_SUBJECT, "Chợ tốt");
+        share.putExtra(Intent.EXTRA_TEXT, "https://www.chotot.com/");
+
+        startActivity(Intent.createChooser(share, "Chia sẻ!"));
+        Toast.makeText(getContext(), "Chia sẻ thành công", Toast.LENGTH_SHORT).show();
     }
 }

@@ -23,6 +23,7 @@ import android.view.Window;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.administrator.chotot.R;
 import com.example.administrator.chotot.adapter.ProductsAdapter;
@@ -180,6 +181,7 @@ public class ListProductsActivity extends AppCompatActivity implements OnQueryTe
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.search, menu);
         MenuItem item = menu.findItem(R.id.search_view);
+        final MenuItem itemSave = menu.findItem(R.id.item_save_search);
 
         searchView = (SearchView) item.getActionView();
         searchView.setOnQueryTextListener(this);
@@ -200,11 +202,14 @@ public class ListProductsActivity extends AppCompatActivity implements OnQueryTe
         MenuItemCompat.setOnActionExpandListener(item, new MenuItemCompat.OnActionExpandListener() {
             @Override
             public boolean onMenuItemActionExpand(MenuItem item) {
+                itemSave.setVisible(true);
                 return true;
             }
 
             @Override
             public boolean onMenuItemActionCollapse(MenuItem item) {
+                itemSave.setVisible(false);
+
                 keyWord = "";
                 searchProduct(city, category, keyWord);
                 return true;
@@ -217,6 +222,14 @@ public class ListProductsActivity extends AppCompatActivity implements OnQueryTe
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
             finish();
+        }
+
+        if(item.getItemId() == R.id.item_save_search){
+            if(keyWord.equals("")){
+                Toast.makeText(getApplicationContext(), "Từ khóa không được để trống", Toast.LENGTH_SHORT).show();
+            }else{
+                Toast.makeText(getApplicationContext(), keyWord, Toast.LENGTH_SHORT).show();
+            }
         }
 
         return super.onOptionsItemSelected(item);
@@ -247,7 +260,9 @@ public class ListProductsActivity extends AppCompatActivity implements OnQueryTe
 
     @Override
     public boolean onQueryTextChange(String newText) {
-        return false;
+        keyWord = StringUtils.removeAccent(newText);
+
+        return true;
     }
 
     @Override

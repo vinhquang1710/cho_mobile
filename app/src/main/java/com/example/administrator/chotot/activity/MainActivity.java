@@ -1,7 +1,6 @@
 package com.example.administrator.chotot.activity;
 
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -10,19 +9,13 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
-import android.support.v7.widget.SearchView.OnQueryTextListener;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.example.administrator.chotot.R;
 import com.example.administrator.chotot.fragment.ChatFragment;
-import com.example.administrator.chotot.fragment.InviteFragment;
 import com.example.administrator.chotot.fragment.ProductsFragment;
 import com.example.administrator.chotot.fragment.SellFragment;
 import com.example.administrator.chotot.fragment.SettingFragment;
@@ -30,7 +23,7 @@ import com.example.administrator.chotot.fragment.SettingFragment;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements OnQueryTextListener{
+public class MainActivity extends AppCompatActivity{
     private Toolbar toolbar;
     private TabLayout tabLayout;
     private SearchView searchView;
@@ -70,24 +63,19 @@ public class MainActivity extends AppCompatActivity implements OnQueryTextListen
         tab2.setImageResource(R.drawable.xml_tab_chat);
         tabLayout.getTabAt(1).setCustomView(tab2);
 
-        ImageView tab3 = (ImageView) LayoutInflater.from(this).inflate(R.layout.custom_tab, null);
-        tab3.setImageResource(R.drawable.xml_tab_invite);
-        tabLayout.getTabAt(2).setCustomView(tab3);
-
         ImageView tab4 = (ImageView) LayoutInflater.from(this).inflate(R.layout.custom_tab, null);
         tab4.setImageResource(R.drawable.xml_tab_sell);
-        tabLayout.getTabAt(3).setCustomView(tab4);
+        tabLayout.getTabAt(2).setCustomView(tab4);
 
         ImageView tab5 = (ImageView) LayoutInflater.from(this).inflate(R.layout.custom_tab, null);
         tab5.setImageResource(R.drawable.xml_tab_setting);
-        tabLayout.getTabAt(4).setCustomView(tab5);
+        tabLayout.getTabAt(3).setCustomView(tab5);
     }
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFrag(new ProductsFragment(), "");
         adapter.addFrag(new ChatFragment(), "");
-        adapter.addFrag(new InviteFragment(), "");
         adapter.addFrag(new SellFragment(), "");
         adapter.addFrag(new SettingFragment(), "");
         viewPager.setAdapter(adapter);
@@ -95,17 +83,17 @@ public class MainActivity extends AppCompatActivity implements OnQueryTextListen
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.search, menu);
+        /*getMenuInflater().inflate(R.menu.search, menu);
         MenuItem item = menu.findItem(R.id.search_view);
 
         searchView = (SearchView)item.getActionView();
         searchView.setOnQueryTextListener(this);
         searchView.setQueryHint("Tìm kiếm...");
-        changeSearchViewTextColor(searchView);
+        changeSearchViewTextColor(searchView);*/
         return true;
     }
 
-    private void changeSearchViewTextColor(View view) {
+    /*private void changeSearchViewTextColor(View view) {
         if (view != null) {
             if (view instanceof TextView) {
                 ((TextView) view).setTextColor(Color.BLACK);
@@ -128,7 +116,7 @@ public class MainActivity extends AppCompatActivity implements OnQueryTextListen
     @Override
     public boolean onQueryTextChange(String newText) {
         return false;
-    }
+    }*/
 
     class ViewPagerAdapter extends FragmentPagerAdapter {
         private final List<Fragment> mFragmentList = new ArrayList<>();

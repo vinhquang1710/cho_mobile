@@ -161,7 +161,7 @@ public class ChatActivity extends AppCompatActivity implements OnClickListener {
             map.put("read", "false");
 
             productRef.child(idProduct).child("Messages").child(idUserFirstChat).child(time + "").setValue(map);
-            sendSinglePush();
+            /*sendSinglePush();*/
             mEtMessage.setText("");
         }
     }

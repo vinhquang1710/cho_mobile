@@ -29,6 +29,7 @@ import com.example.administrator.chotot.view.CirclePageIndicator;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.DatabaseReference.CompletionListener;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
@@ -45,6 +46,7 @@ import java.util.TimeZone;
 
 import static com.example.administrator.chotot.activity.MainActivity.phone;
 import static com.example.administrator.chotot.utils.FirebaseConfig.productRef;
+import static java.security.AccessController.getContext;
 
 /**
  * Created by Administrator on 20/10/2016.
@@ -142,7 +144,7 @@ public class DetailProductActivity extends AppCompatActivity implements OnClickL
                 break;
 
             case R.id.img_share:
-
+                shareUrl();
                 break;
 
             case R.id.img_more:
@@ -224,10 +226,31 @@ public class DetailProductActivity extends AppCompatActivity implements OnClickL
 
         popupMenu.getMenuInflater().inflate(R.menu.menu_more, popupMenu.getMenu());
 
+        if(idUser.equals(phone)) {
+            popupMenu.getMenu().findItem(R.id.menu_remove).setVisible(true);
+        }else{
+            popupMenu.getMenu().findItem(R.id.menu_remove).setVisible(false);
+        }
+
         popupMenu.setOnMenuItemClickListener(new OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
-                Toast.makeText(getApplicationContext(), item.getTitle(), Toast.LENGTH_SHORT).show();
+                switch (item.getItemId()){
+                    case R.id.menu_report:
+                        Toast.makeText(getApplicationContext(), "Báo cáo", Toast.LENGTH_SHORT).show();
+                        break;
+
+                    case R.id.menu_remove:
+                        productRef.child(idProduct).removeValue(new CompletionListener() {
+                            @Override
+                            public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
+                                Toast.makeText(getApplicationContext(), "Xóa bài viết thành công", Toast.LENGTH_SHORT).show();
+                                finish();
+                            }
+                        });
+                        break;
+                }
+
                 return true;
             }
         });
@@ -434,5 +457,19 @@ public class DetailProductActivity extends AppCompatActivity implements OnClickL
 
             }
         });
+    }
+
+    private void shareUrl() {
+        Intent share = new Intent(android.content.Intent.ACTION_SEND);
+        share.setType("text/plain");
+        share.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
+
+        // Add data to the intent, the receiving app will decide
+        // what to do with it.
+        share.putExtra(Intent.EXTRA_SUBJECT, "Chợ tốt");
+        share.putExtra(Intent.EXTRA_TEXT, "https://www.chotot.com/");
+
+        startActivity(Intent.createChooser(share, "Chia sẻ!"));
+        Toast.makeText(getApplicationContext(), "Chia sẻ thành công", Toast.LENGTH_SHORT).show();
     }
 }

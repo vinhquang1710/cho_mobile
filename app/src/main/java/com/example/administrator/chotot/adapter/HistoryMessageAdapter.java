@@ -98,7 +98,7 @@ public class HistoryMessageAdapter extends Adapter<MyViewHolder>{
             mTvContent.setText(mArr.get(position).getContent());
             mTvTime.setText(calculateTime(time));
 
-            productRef.child(idProduct).addValueEventListener(new ValueEventListener() {
+            productRef.child(idProduct).addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     mTvTitleProduct.setText(dataSnapshot.child("title").getValue().toString());
@@ -111,7 +111,7 @@ public class HistoryMessageAdapter extends Adapter<MyViewHolder>{
                 }
             });
 
-            userRef.child(idSender).addValueEventListener(new ValueEventListener() {
+            userRef.child(idSender).addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     mTvFullname.setText(dataSnapshot.child("fullname").getValue().toString());

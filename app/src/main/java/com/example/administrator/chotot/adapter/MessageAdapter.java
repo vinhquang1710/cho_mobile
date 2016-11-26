@@ -116,7 +116,7 @@ public class MessageAdapter extends Adapter<MyViewHolder>{
                 long diffDays = diff / (24 * 60 * 60 * 1000);
 
                 if (diffDays > 7) {
-                    kq = startTime;
+                    kq = dateFormat.format(new Date(millisStartTime));
                 } else if (diffDays == 7) {
                     kq = "một tuần";
                 } else if (diffDays >= 1) {
