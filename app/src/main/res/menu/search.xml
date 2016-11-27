@@ -14,4 +14,11 @@
         android:title="Save"
         android:visible="false"
         app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/item_saved_search"
+        android:icon="@drawable/ic_red_save_search"
+        android:title="Save"
+        android:visible="false"
+        app:showAsAction="always"/>
 </menu>

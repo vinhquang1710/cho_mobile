@@ -31,6 +31,7 @@ import com.example.administrator.chotot.R;
 import com.example.administrator.chotot.activity.EditInfoActivity;
 import com.example.administrator.chotot.activity.HelpActivity;
 import com.example.administrator.chotot.activity.ListFavoriteActivity;
+import com.example.administrator.chotot.activity.ListKeyWordActivity;
 import com.example.administrator.chotot.activity.LoginActivity;
 import com.example.administrator.chotot.activity.MainActivity;
 import com.example.administrator.chotot.notification.MyFirebaseMessagingService;
@@ -55,7 +56,6 @@ import static android.app.Activity.RESULT_OK;
 import static com.example.administrator.chotot.activity.MainActivity.phone;
 import static com.example.administrator.chotot.utils.FirebaseConfig.storageRef;
 import static com.example.administrator.chotot.utils.FirebaseConfig.userRef;
-import static com.facebook.FacebookSdk.getApplicationContext;
 
 /**
  * Created by Administrator on 15/10/2016.
@@ -161,7 +161,8 @@ public class SettingFragment extends Fragment implements OnClickListener {
                 break;
 
             case R.id.ln_save_search:
-
+                Intent intentKeyWord = new Intent(getContext(), ListKeyWordActivity.class);
+                startActivity(intentKeyWord);
                 break;
 
             case R.id.ln_help:

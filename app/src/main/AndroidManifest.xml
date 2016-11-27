@@ -71,6 +71,7 @@
         <activity android:name=".activity.ListFavoriteActivity" />
         <activity android:name=".activity.HelpActivity" />
         <activity android:name=".activity.ProfileActivity" />
+        <activity android:name=".activity.ListKeyWordActivity" />
     </application>
 
 </manifest>

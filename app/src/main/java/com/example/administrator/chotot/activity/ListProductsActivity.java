@@ -33,18 +33,23 @@ import com.example.administrator.chotot.utils.StringUtils;
 import com.example.administrator.chotot.view.SpacesItemDecoration;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 
+import static com.example.administrator.chotot.activity.MainActivity.phone;
 import static com.example.administrator.chotot.utils.FirebaseConfig.productRef;
+import static com.example.administrator.chotot.utils.FirebaseConfig.userRef;
 
 /**
  * Created by Administrator on 19/10/2016.
  */
 
-public class ListProductsActivity extends AppCompatActivity implements OnQueryTextListener, OnClickListener {
+public class ListProductsActivity extends AppCompatActivity implements OnClickListener {
     private Toolbar toolbar;
     private SearchView searchView;
 
@@ -58,6 +63,8 @@ public class ListProductsActivity extends AppCompatActivity implements OnQueryTe
     private ArrayList<Product> mArrCat = new ArrayList<>();
     private ArrayList<Product> mArrCity = new ArrayList<>();
     private ProductsAdapter mAdapter;
+
+    private MenuItem itemSave, itemSaved;
 
     private String idCategory, category, city, keyWord;
 
@@ -83,6 +90,7 @@ public class ListProductsActivity extends AppCompatActivity implements OnQueryTe
         idCategory = bundle.getString("id");
         category = bundle.getString("category");
         city = MainActivity.city;
+        keyWord = bundle.getString("keyword");
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -103,7 +111,6 @@ public class ListProductsActivity extends AppCompatActivity implements OnQueryTe
 
         mTvCategory.setText(category);
         mTvAddress.setText(MainActivity.city);
-        keyWord = "";
 
         mProgress = new ProgressDialog(this);
     }
@@ -181,13 +188,42 @@ public class ListProductsActivity extends AppCompatActivity implements OnQueryTe
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.search, menu);
         MenuItem item = menu.findItem(R.id.search_view);
-        final MenuItem itemSave = menu.findItem(R.id.item_save_search);
+        itemSave = menu.findItem(R.id.item_save_search);
+        itemSaved = menu.findItem(R.id.item_saved_search);
 
         searchView = (SearchView) item.getActionView();
-        searchView.setOnQueryTextListener(this);
         searchView.setQueryHint("Tìm kiếm...");
         changeSearchViewTextColor(searchView);
+
+        if(!keyWord.equals("")){
+            item.expandActionView();
+            searchView.setQuery(keyWord, false);
+            searchView.clearFocus();
+        }
+
         keyWord = searchView.getQuery().toString();
+
+        searchView.setOnQueryTextListener(new OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+
+                checkSaveKeyWord(query);
+
+                keyWord = StringUtils.removeAccent(query);
+                searchProduct(mTvAddress.getText().toString(), mTvCategory.getText().toString(), keyWord);
+
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                itemSave.setVisible(false);
+                itemSaved.setVisible(false);
+                keyWord = StringUtils.removeAccent(newText);
+
+                return true;
+            }
+        });
 
         ImageView mImgClose = (ImageView)searchView.findViewById(R.id.search_close_btn);
         mImgClose.setOnClickListener(new OnClickListener() {
@@ -202,13 +238,14 @@ public class ListProductsActivity extends AppCompatActivity implements OnQueryTe
         MenuItemCompat.setOnActionExpandListener(item, new MenuItemCompat.OnActionExpandListener() {
             @Override
             public boolean onMenuItemActionExpand(MenuItem item) {
-                itemSave.setVisible(true);
+                checkSaveKeyWord(keyWord);
                 return true;
             }
 
             @Override
             public boolean onMenuItemActionCollapse(MenuItem item) {
                 itemSave.setVisible(false);
+                itemSaved.setVisible(false);
 
                 keyWord = "";
                 searchProduct(city, category, keyWord);
@@ -228,7 +265,9 @@ public class ListProductsActivity extends AppCompatActivity implements OnQueryTe
             if(keyWord.equals("")){
                 Toast.makeText(getApplicationContext(), "Từ khóa không được để trống", Toast.LENGTH_SHORT).show();
             }else{
-                Toast.makeText(getApplicationContext(), keyWord, Toast.LENGTH_SHORT).show();
+                Map<String, Object> map = new HashMap<>();
+                map.put("keyword", keyWord);
+                userRef.child(phone).child("keyword").child(keyWord).setValue(map);
             }
         }
 
@@ -250,7 +289,7 @@ public class ListProductsActivity extends AppCompatActivity implements OnQueryTe
         }
     }
 
-    @Override
+    /*@Override
     public boolean onQueryTextSubmit(String query) {
         keyWord = StringUtils.removeAccent(query);
         searchProduct(mTvAddress.getText().toString(), mTvCategory.getText().toString(), keyWord);
@@ -263,7 +302,7 @@ public class ListProductsActivity extends AppCompatActivity implements OnQueryTe
         keyWord = StringUtils.removeAccent(newText);
 
         return true;
-    }
+    }*/
 
     @Override
     public void onClick(View v) {
@@ -506,5 +545,48 @@ public class ListProductsActivity extends AppCompatActivity implements OnQueryTe
             mTvAlert.setVisibility(View.GONE);
             mRecyProducts.setVisibility(View.VISIBLE);
         }
+    }
+
+    private void checkSaveKeyWord(final String keyWord){
+        userRef.child(phone).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                itemSave.setVisible(true);
+                itemSaved.setVisible(false);
+                if(dataSnapshot.child("keyword").getValue() != null){
+                    DatabaseReference keyword = dataSnapshot.child("keyword").getRef();
+                    keyword.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            int count = 0;
+
+                            for(DataSnapshot db : dataSnapshot.getChildren()){
+                                if(db.getKey().equals(keyWord)){
+                                    count++;
+                                }
+                            }
+
+                            if(count > 0){
+                                itemSave.setVisible(false);
+                                itemSaved.setVisible(true);
+                            }else{
+                                itemSave.setVisible(true);
+                                itemSaved.setVisible(false);
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+
+                        }
+                    });
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
     }
 }

@@ -154,6 +154,7 @@ public class ProductsFragment extends Fragment implements OnClickListener {
                 Bundle bundle = new Bundle();
                 bundle.putString("id", mArr.get(position).getId());
                 bundle.putString("category", mArr.get(position).getCategory());
+                bundle.putString("keyword", "");
 
                 Intent intent = new Intent(getContext(), ListProductsActivity.class);
                 intent.putExtra("bundle", bundle);
