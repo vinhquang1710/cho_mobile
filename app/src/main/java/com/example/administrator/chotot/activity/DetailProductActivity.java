@@ -46,7 +46,6 @@ import java.util.TimeZone;
 
 import static com.example.administrator.chotot.activity.MainActivity.phone;
 import static com.example.administrator.chotot.utils.FirebaseConfig.productRef;
-import static java.security.AccessController.getContext;
 
 /**
  * Created by Administrator on 20/10/2016.
@@ -136,7 +135,11 @@ public class DetailProductActivity extends AppCompatActivity implements OnClickL
                 break;
 
             case R.id.img_fav_normal:
-                doFav();
+                if(phone.equals("")){
+                    Toast.makeText(getApplicationContext(), "Vui lòng đăng nhập để sử dụng chức năng này", Toast.LENGTH_SHORT).show();
+                }else {
+                    doFav();
+                }
                 break;
 
             case R.id.img_fav_pressed:

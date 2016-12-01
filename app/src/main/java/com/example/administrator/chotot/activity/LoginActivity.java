@@ -66,7 +66,7 @@ import static com.example.administrator.chotot.utils.FirebaseConfig.userRef;
 
 public class LoginActivity extends AppCompatActivity implements OnClickListener {
     private EditText mEtPhone, mEtPwd;
-    private ImageView mImgHidePwd, mImgShowPwd;
+    private ImageView mImgHidePwd, mImgShowPwd, mImgClose;
     private TextView mTvLogin, mTvForgotPwd, mTvRegister;
     private LinearLayout mLnLoginFb;
 
@@ -119,6 +119,7 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
 
         mImgHidePwd = (ImageView)findViewById(R.id.img_hide_pwd);
         mImgShowPwd = (ImageView)findViewById(R.id.img_show_pwd);
+        mImgClose = (ImageView)findViewById(R.id.img_close);
 
         mTvLogin = (TextView)findViewById(R.id.tv_login);
         mTvForgotPwd = (TextView)findViewById(R.id.tv_forgot_pwd);
@@ -132,6 +133,7 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
     private void setListener(){
         mImgShowPwd.setOnClickListener(this);
         mImgHidePwd.setOnClickListener(this);
+        mImgClose.setOnClickListener(this);
         mTvLogin.setOnClickListener(this);
         mTvForgotPwd.setOnClickListener(this);
         mTvRegister.setOnClickListener(this);
@@ -215,6 +217,10 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
 
             case R.id.ln_login_fb:
                 loginManager.logInWithReadPermissions(this, Arrays.asList("email", "public_profile", "user_birthday"));
+                break;
+
+            case R.id.img_close:
+                finish();
                 break;
         }
     }

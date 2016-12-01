@@ -1,8 +1,10 @@
 package com.example.administrator.chotot.activity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -122,7 +124,7 @@ public class ListKeyWordActivity extends AppCompatActivity implements OnClickLis
         }, new OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
-
+                showDialog(mArr.get(position));
             }
         });
 
@@ -136,5 +138,27 @@ public class ListKeyWordActivity extends AppCompatActivity implements OnClickLis
                 finish();
                 break;
         }
+    }
+
+    private void showDialog(final String keyword){
+        DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int choice) {
+                switch (choice) {
+                    case DialogInterface.BUTTON_POSITIVE:
+                        userRef.child(phone).child("keyword").child(keyword).removeValue();
+                        getData();
+                        break;
+                    case DialogInterface.BUTTON_NEGATIVE:
+                        dialog.dismiss();
+                        break;
+                }
+            }
+        };
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Bạn có chắc chắn xóa từ khóa này?")
+                .setPositiveButton("Có", dialogClickListener)
+                .setNegativeButton("Không", dialogClickListener).show();
     }
 }

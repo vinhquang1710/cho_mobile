@@ -265,9 +265,13 @@ public class ListProductsActivity extends AppCompatActivity implements OnClickLi
             if(keyWord.equals("")){
                 Toast.makeText(getApplicationContext(), "Từ khóa không được để trống", Toast.LENGTH_SHORT).show();
             }else{
-                Map<String, Object> map = new HashMap<>();
-                map.put("keyword", keyWord);
-                userRef.child(phone).child("keyword").child(keyWord).setValue(map);
+                if(phone.equals("")){
+                    Toast.makeText(getApplicationContext(), "Vui lòng đăng nhập để xử dụng chức năng này", Toast.LENGTH_SHORT).show();
+                }else {
+                    Map<String, Object> map = new HashMap<>();
+                    map.put("keyword", keyWord);
+                    userRef.child(phone).child("keyword").child(keyWord).setValue(map);
+                }
             }
         }
 

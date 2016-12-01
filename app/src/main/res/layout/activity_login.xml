@@ -1,186 +1,200 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:app="http://schemas.android.com/apk/res-auto"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              xmlns:fb="http://schemas.android.com/apk/res-auto"
-              android:background="@drawable/background_screen_blur"
-              android:orientation="vertical">
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:app="http://schemas.android.com/apk/res-auto"
+             xmlns:fb="http://schemas.android.com/apk/res-auto"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:background="@drawable/background_screen_blur">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_close_dialog"
+        android:layout_gravity="right"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="5dp"
+        android:id="@+id/img_close"/>
 
     <LinearLayout
-        android:id="@+id/ln_login"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:gravity="center_horizontal"
-        android:orientation="vertical"
-        android:padding="@dimen/dimen_size_15">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <LinearLayout
+            android:id="@+id/ln_login"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/img_slogan"/>
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="@dimen/dimen_size_15">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dimen_size_20"
-                android:background="@color/colorBgInputLogin"
+                android:layout_height="match_parent"
+                android:gravity="center"
                 android:orientation="vertical">
 
-                <com.example.administrator.chotot.view.CustomFontEditText
-                    android:id="@+id/et_phone"
-                    android:layout_width="match_parent"
+                <ImageView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:hint="@string/phone_number"
-                    android:inputType="number"
-                    android:padding="@dimen/dimen_size_10"
-                    app:typeface="roboto_light"/>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/dimen_size_0.5"
-                    android:background="@color/colorLine"/>
+                    android:src="@drawable/img_slogan"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
+                    android:layout_marginTop="@dimen/dimen_size_20"
+                    android:background="@color/colorBgInputLogin"
+                    android:orientation="vertical">
 
                     <com.example.administrator.chotot.view.CustomFontEditText
-                        android:id="@+id/et_pwd"
-                        android:layout_width="0dp"
+                        android:id="@+id/et_phone"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:background="@null"
-                        android:hint="@string/pwd"
-                        android:inputType="textPassword"
+                        android:hint="@string/phone_number"
+                        android:inputType="number"
                         android:padding="@dimen/dimen_size_10"
                         app:typeface="roboto_light"/>
 
-                    <ImageView
-                        android:id="@+id/img_hide_pwd"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:padding="@dimen/dimen_size_10"
-                        android:src="@drawable/ic_hide_pwd"/>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_size_0.5"
+                        android:background="@color/colorLine"/>
 
-                    <ImageView
-                        android:id="@+id/img_show_pwd"
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:padding="@dimen/dimen_size_10"
-                        android:src="@drawable/ic_show_pwd"
-                        android:visibility="gone"/>
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <com.example.administrator.chotot.view.CustomFontEditText
+                            android:id="@+id/et_pwd"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@null"
+                            android:hint="@string/pwd"
+                            android:inputType="textPassword"
+                            android:padding="@dimen/dimen_size_10"
+                            app:typeface="roboto_light"/>
+
+                        <ImageView
+                            android:id="@+id/img_hide_pwd"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/dimen_size_10"
+                            android:src="@drawable/ic_hide_pwd"/>
+
+                        <ImageView
+                            android:id="@+id/img_show_pwd"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/dimen_size_10"
+                            android:src="@drawable/ic_show_pwd"
+                            android:visibility="gone"/>
+                    </LinearLayout>
                 </LinearLayout>
+
+                <com.example.administrator.chotot.view.CustomFontTextView
+                    android:id="@+id/tv_login"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_size_15"
+                    android:background="@drawable/xml_background_button_login"
+                    android:gravity="center"
+                    android:padding="@dimen/dimen_size_15"
+                    android:text="@string/login"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorTextWhite"
+                    android:textSize="@dimen/dimen_text_16sp"
+                    app:typeface="roboto_bold"/>
+
+                <com.example.administrator.chotot.view.CustomFontTextView
+                    android:id="@+id/tv_forgot_pwd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_size_10"
+                    android:background="@color/colorBgButtonForgotPwd"
+                    android:gravity="center"
+                    android:padding="@dimen/dimen_size_15"
+                    android:text="@string/forgot"
+                    android:textColor="@drawable/xml_text_color_forgot_pwd"
+                    android:textSize="@dimen/dimen_text_16sp"
+                    app:typeface="roboto_regular"/>
             </LinearLayout>
-
-            <com.example.administrator.chotot.view.CustomFontTextView
-                android:id="@+id/tv_login"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dimen_size_15"
-                android:background="@drawable/xml_background_button_login"
-                android:gravity="center"
-                android:padding="@dimen/dimen_size_15"
-                android:text="@string/login"
-                android:textAllCaps="true"
-                android:textColor="@color/colorTextWhite"
-                android:textSize="@dimen/dimen_text_16sp"
-                app:typeface="roboto_bold"/>
-
-            <com.example.administrator.chotot.view.CustomFontTextView
-                android:id="@+id/tv_forgot_pwd"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dimen_size_10"
-                android:background="@color/colorBgButtonForgotPwd"
-                android:gravity="center"
-                android:padding="@dimen/dimen_size_15"
-                android:text="@string/forgot"
-                android:textColor="@drawable/xml_text_color_forgot_pwd"
-                android:textSize="@dimen/dimen_text_16sp"
-                app:typeface="roboto_regular"/>
         </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical">
-
-        <View
-            android:layout_width="0dp"
-            android:layout_height="@dimen/dimen_size_0.5"
-            android:layout_weight="1"
-            android:background="@color/colorLine" />
-
-        <com.example.administrator.chotot.view.CustomFontTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="hoặc"
-            android:padding="@dimen/dimen_size_10"
-            android:textColor="@color/colorTextWhite"
-            app:typeface="roboto_medium"/>
-
-        <View
-            android:layout_width="0dp"
-            android:layout_height="@dimen/dimen_size_0.5"
-            android:layout_weight="1"
-            android:background="@color/colorLine" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="@dimen/dimen_size_15"
-        android:layout_marginBottom="@dimen/dimen_size_5">
 
         <LinearLayout
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="horizontal"
-            android:gravity="center"
-            android:id="@+id/ln_login_fb"
-            android:background="@drawable/xml_background_button_facebook">
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="@dimen/dimen_size_0.5"
+                android:layout_weight="1"
+                android:background="@color/colorLine"/>
 
             <com.example.administrator.chotot.view.CustomFontTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Đăng nhập bằng  "
-                android:textColor="@android:color/white"
-                app:typeface="roboto_regular"
-                android:drawableRight="@drawable/icon_fb"
-                android:padding="@dimen/dimen_size_15"/>
+                android:padding="@dimen/dimen_size_10"
+                android:text="hoặc"
+                android:textColor="@color/colorTextWhite"
+                app:typeface="roboto_medium"/>
 
+            <View
+                android:layout_width="0dp"
+                android:layout_height="@dimen/dimen_size_0.5"
+                android:layout_weight="1"
+                android:background="@color/colorLine"/>
         </LinearLayout>
 
-        <View
-            android:layout_width="@dimen/dimen_size_10"
-            android:layout_height="match_parent"
-            android:background="@android:color/transparent" />
-
-        <com.example.administrator.chotot.view.CustomFontTextView
-            android:layout_width="0dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/xml_background_button_register"
-            android:text="@string/register"
-            android:textColor="@color/colorTextWhite"
-            android:gravity="center"
-            app:typeface="roboto_regular"
-            android:padding="@dimen/dimen_size_15"
-            android:id="@+id/tv_register"/>
+            android:layout_marginBottom="@dimen/dimen_size_5"
+            android:orientation="horizontal"
+            android:padding="@dimen/dimen_size_15">
+
+            <LinearLayout
+                android:id="@+id/ln_login_fb"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/xml_background_button_facebook"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <com.example.administrator.chotot.view.CustomFontTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableRight="@drawable/icon_fb"
+                    android:padding="@dimen/dimen_size_15"
+                    android:text="Đăng nhập bằng  "
+                    android:textColor="@android:color/white"
+                    app:typeface="roboto_regular"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="@dimen/dimen_size_10"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"/>
+
+            <com.example.administrator.chotot.view.CustomFontTextView
+                android:id="@+id/tv_register"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/xml_background_button_register"
+                android:gravity="center"
+                android:padding="@dimen/dimen_size_15"
+                android:text="@string/register"
+                android:textColor="@color/colorTextWhite"
+                app:typeface="roboto_regular"/>
+        </LinearLayout>
     </LinearLayout>
-</LinearLayout>
+</FrameLayout>
